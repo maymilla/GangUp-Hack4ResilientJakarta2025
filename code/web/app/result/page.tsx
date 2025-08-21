@@ -5,6 +5,15 @@ import Panorama from "../_components/Panorama";
 import { useRainProbNow } from "../_components/RainProb";
 import { SOLUTIONS } from "../_utils/solutions";
 import Link from "next/link";
+import { Suspense } from 'react';
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading…</div>}>
+      <HasilPage />
+    </Suspense>
+  );
+}
 
 const STORAGE_KEY = "bedahgang";
 const DEFAULT_KELURAHAN = "Duren Sawit";
@@ -56,7 +65,7 @@ function boolFromString(x?: string | null) {
   return true;
 }
 
-export default function HasilPage() {
+export function HasilPage() {
   // gallery state
   const trackRef = useRef<HTMLDivElement>(null);
   const [idx, setIdx] = useState(0);

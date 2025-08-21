@@ -2,6 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Suspense } from 'react';
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading…</div>}>
+      <LandingPage />
+    </Suspense>
+  );
+}
 
 const MAP_PAGE = "/confirm-location"; 
 
@@ -12,7 +21,7 @@ const SLIDES = [
   { src: "/landing-page/5.png", alt: "Slide 5" },
 ];
 
-export default function LandingPage() {
+export function LandingPage() {
   const router = useRouter();
 
   // gallery state
