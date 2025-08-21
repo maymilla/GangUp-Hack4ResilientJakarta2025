@@ -6,7 +6,6 @@ import { Suspense } from 'react';
 import dynamic from "next/dynamic";
 import type { Address } from "../_utils/types.jsx";
 
-'use client';
 
 
 export default function Page() {
